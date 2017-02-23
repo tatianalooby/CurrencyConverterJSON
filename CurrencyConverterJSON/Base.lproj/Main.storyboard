@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CurrencyConverterJSON" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,97 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eurpean-union-flag-small.png" translatesAutoresizingMaskIntoConstraints="NO" id="tFA-ZR-ted">
+                                <rect key="frame" x="20" y="40" width="130" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="KvQ-Rz-2Rn"/>
+                                    <constraint firstAttribute="height" constant="80" id="Xcx-jd-vLC"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter amount in EUR" textAlignment="right" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hxi-pS-LdA">
+                                <rect key="frame" x="170" y="90" width="185" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9Is-yG-c5n">
+                                <rect key="frame" x="8" y="140" width="359" height="267"/>
+                                <color key="backgroundColor" red="0.95975783989999996" green="0.9399569767" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="94" id="1LM-NG-921" customClass="CustomCell" customModule="CurrencyConverterJSON" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="359" height="94"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1LM-NG-921" id="c8e-6l-IZK">
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4SE-Kb-gCn">
+                                                    <rect key="frame" x="8" y="7" width="130" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="6af-sz-bcy"/>
+                                                        <constraint firstAttribute="height" constant="80" id="GYA-A9-Xkc"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vi-fr-2fl">
+                                                    <rect key="frame" x="181" y="30" width="170" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4SE-Kb-gCn" firstAttribute="leading" secondItem="c8e-6l-IZK" secondAttribute="leading" constant="8" id="MfC-p0-iZT"/>
+                                                <constraint firstItem="4SE-Kb-gCn" firstAttribute="centerY" secondItem="c8e-6l-IZK" secondAttribute="centerY" id="Ngo-bk-NKP"/>
+                                                <constraint firstItem="7Vi-fr-2fl" firstAttribute="leading" secondItem="4SE-Kb-gCn" secondAttribute="trailing" constant="43" id="P05-bw-gxK"/>
+                                                <constraint firstAttribute="trailing" secondItem="7Vi-fr-2fl" secondAttribute="trailing" constant="8" id="mSv-v5-dyC"/>
+                                                <constraint firstItem="7Vi-fr-2fl" firstAttribute="centerY" secondItem="c8e-6l-IZK" secondAttribute="centerY" id="qJN-eQ-U7c"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.95975783989999996" green="0.9399569767" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="currencyLabel" destination="7Vi-fr-2fl" id="I9J-QP-iHr"/>
+                                            <outlet property="flagImage" destination="4SE-Kb-gCn" id="cl5-Pu-IAo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VG6-bU-zt8">
+                                <rect key="frame" x="170" y="40" width="185" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95975783989999996" green="0.9399569767" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="hxi-pS-LdA" firstAttribute="bottom" secondItem="tFA-ZR-ted" secondAttribute="bottom" id="11C-jl-9uw"/>
+                            <constraint firstItem="9Is-yG-c5n" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="39A-hS-WW6"/>
+                            <constraint firstAttribute="trailing" secondItem="9Is-yG-c5n" secondAttribute="trailing" constant="8" id="4sT-kT-OY3"/>
+                            <constraint firstItem="tFA-ZR-ted" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="JZz-8D-pNa"/>
+                            <constraint firstItem="9Is-yG-c5n" firstAttribute="top" secondItem="tFA-ZR-ted" secondAttribute="bottom" constant="20" id="OX8-JD-oNT"/>
+                            <constraint firstAttribute="trailing" secondItem="VG6-bU-zt8" secondAttribute="trailing" constant="20" id="Ukf-gt-HRF"/>
+                            <constraint firstItem="9Is-yG-c5n" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="V5J-ce-dfq"/>
+                            <constraint firstItem="tFA-ZR-ted" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="ZtS-N6-oUB"/>
+                            <constraint firstItem="VG6-bU-zt8" firstAttribute="width" secondItem="hxi-pS-LdA" secondAttribute="width" id="c9m-EY-GN2"/>
+                            <constraint firstItem="VG6-bU-zt8" firstAttribute="top" secondItem="tFA-ZR-ted" secondAttribute="top" id="gR8-og-aYU"/>
+                            <constraint firstItem="hxi-pS-LdA" firstAttribute="leading" secondItem="tFA-ZR-ted" secondAttribute="trailing" constant="20" id="glQ-jg-Zq2"/>
+                            <constraint firstItem="VG6-bU-zt8" firstAttribute="height" secondItem="hxi-pS-LdA" secondAttribute="height" id="qWp-Tj-srd"/>
+                            <constraint firstAttribute="trailing" secondItem="hxi-pS-LdA" secondAttribute="trailing" constant="20" id="xro-sW-fg1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currencyTableView" destination="9Is-yG-c5n" id="y93-8T-a9u"/>
+                        <outlet property="dateLabel" destination="VG6-bU-zt8" id="mjP-9U-SaV"/>
+                        <outlet property="euroAmountTextField" destination="hxi-pS-LdA" id="rM8-jE-kfi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-279" y="-510"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eurpean-union-flag-small.png" width="275" height="183"/>
+    </resources>
 </document>
